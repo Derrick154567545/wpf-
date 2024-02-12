@@ -1,0 +1,79 @@
+<Window x:Class="aghmyeyes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Task Manager" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="10" Grid.Column="0">
+            <Label Content="Select an action:"/>
+            <ComboBox Name="cmbActions" Width="200" Height="30" SelectionChanged="cmbActions_SelectionChanged"/>
+
+            <!-- Other controls for user input -->
+            <StackPanel Name="createTaskPanel" Visibility="Collapsed">
+                <Label Content="New Task Name:"/>
+                <TextBox Name="txtNewTaskName" Width="200" Height="30"/>
+                <Label Content="New Task Description:"/>
+                <TextBox Name="txtNewTaskDescription" Width="200" Height="30"/>
+                <Label Content="Comments:"/>
+                <TextBox Name="txtNewComments" Width="200" Height="30"/>
+                <Label Content="Assigned To:"/>
+                <TextBox Name="txtNewAssignedTo" Width="200" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Name="assignTaskPanel" Visibility="Collapsed">
+                <Label Content="Task Name to Assign:"/>
+                <TextBox Name="txtTaskNameToAssign" Width="200" Height="30"/>
+                <Label Content="Assigned To:"/>
+                <TextBox Name="txtAssignedToUser" Width="200" Height="30"/>
+                <Label Content="Replace existing assignment? (1 for yes, 0 for no):"/>
+                <TextBox Name="txtReplaceAssignment" Width="200" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Name="addCommentsPanel" Visibility="Collapsed">
+                <Label Content="Task Name to Add Comments:"/>
+
+                <ComboBox Name="cmbTaskNameToAddComments" Width="200" Height="30"/>
+                <Label Content="Comments:"/>
+                <TextBox Name="txtNewCommentshere" Width="200" Height="30"/>
+                <Label Content="Replace existing comments? (1 for yes, 0 for no):"/>
+                <TextBox Name="txtReplaceComments" Width="200" Height="30"/>
+            </StackPanel>
+
+
+            <StackPanel Name="completeTaskPanel" Visibility="Collapsed">
+                <Label Content="Task Name to Complete:"/>
+                <ComboBox Name="cmbTaskNameToComplete" Width="200" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Name="verifyTaskPanel" Visibility="Collapsed">
+                <Label Content="Task Name to Verify:"/>
+                <ComboBox Name="cmbTaskNameToVerify" Width="200" Height="30"/>
+                <Label Content="Verification Status (1 for Verified, 2 for For Revision):"/>
+                <TextBox Name="txtVerificationStatus" Width="200" Height="30"/>
+                <Label Content="Verifier Details:"/>
+                <TextBox Name="txtVerifierDetails" Width="200" Height="30"/>
+                <Label Content="Verification Comments:"/>
+                <TextBox Name="txtVerificationComments" Width="200" Height="30"/>
+            </StackPanel>
+
+            <StackPanel Name="deleteTaskPanel" Visibility="Collapsed">
+                <Label Content="Task Name to Delete:"/>
+                <ComboBox Name="cmbTaskNameToDelete" Width="200" Height="30"/>
+            </StackPanel>
+
+            <Button Content="Perform Action" Width="200" Height="30" Click="PerformAction_Click"/>
+
+            <Label Name="lblConcerns" Content="" Foreground="Red" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <ScrollViewer Name="scrollViewer" Grid.Column="1" Margin="10">
+            <TextBlock Name="txtTasks" TextWrapping="Wrap"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
+
+
